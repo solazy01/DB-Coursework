@@ -1,0 +1,32 @@
+CREATE OR REPLACE FUNCTION login.Role()
+  RETURNS trigger AS
+$BODY$
+DECLARE
+RoleP int;
+
+BEGIN 
+---------------------------------------------------------------------------------------------------------
+
+SELECT COUNT(vacant) INTO RoleP
+FROM login.userpass
+WHERE vacant = 'admin';
+
+---------------------------------------------------------------------------------------------------------
+
+IF (RoleP >= 1) THEN
+RAISE EXCEPTION 'There can be only one admin';
+RETURN OLD;
+ELSE
+RETURN NEW; 
+END IF;
+END;
+
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION login.Role()
+  OWNER TO admin;
+
+CREATE TRIGGER RoleAdmin
+BEFORE INSERT OR UPDATE ON login.userpass FOR EACH ROW 
+EXECUTE PROCEDURE login.Role()

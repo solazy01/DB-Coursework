@@ -1,0 +1,46 @@
+SELECT * FROM maindb.update_Staff_func('Пукан','Петро','Петрович','Кассир', '12.12.2010', '13.12.2015', 'admin6', '22222', 'cashier' );
+
+CREATE OR REPLACE FUNCTION maindb.update_Staff_func(
+ FirstNameP VARCHAR,
+ SecondNameP VARCHAR, 
+ PatrynomicP VARCHAR,
+ PositionP VARCHAR,
+ DateOfBirthP DATE,
+ EntryDateP DATE, 
+ LoginP VARCHAR,
+ PasswordP VARCHAR, 
+ RoleP VARCHAR)
+
+RETURNS SETOF login.UserPass AS
+  
+$BODY$
+
+DECLARE 
+
+NewLogin VARCHAR;
+
+BEGIN 
+	UPDATE login.UserPass
+	SET pass = PasswordP,
+		vacant = RoleP
+	WHERE IDLogin = LoginP RETURNING IDLogin INTO NewLogin;
+
+	UPDATE maindb."Staff"
+	SET "FullName"."FirstName" = FirstNameP,
+		"FullName"."SecondName" = SecondNameP,
+		"FullName"."Patronymic" = PatrynomicP,
+		"Position" = PositionP,
+		"BirthDate" = DateOfBirthP,
+		"EntryDate" = EntryDateP
+	WHERE login = LoginP;
+		
+
+
+    RETURN QUERY 
+    SELECT *
+    FROM login.UserPass 
+    WHERE IDLogin = NewLogin;
+
+END;
+$BODY$
+LANGUAGE plpgsql

@@ -1,0 +1,72 @@
+CREATE SCHEMA maindb
+  AUTHORIZATION admin;
+
+
+CREATE TYPE   FullName            AS  ("FirstName"     CHAR(20),  "SecondName"                 CHAR(30), "Patronymic"    CHAR(30));
+
+
+Create table maindb."Films" (
+        "FilmId"           Serial          NOT NULL     Primary KEY,
+        "Title"           Text             NOT NULL,
+        "Country"         Text             NOT NULL,
+        "Producer"        Text             NOT NULL,
+        "Duration"        interval	   NOT NULL,
+        "ReleaseDate"     Date             NOT NULL,
+        "Genre"           Text             NOT NULL,
+        "BasePrice"       Float            NOT NULL
+);
+
+
+Create Table maindb."Hall" (
+       "HallId"                        Serial       NOT NULL       Primary Key,
+       "Numbers_of_rows"               Int          NOT NULL,
+       "Number_of_seats_in_a_row"      INT          NOT NULL
+
+);
+
+
+Create table maindb."Session" (
+       "SessionId"         Serial            NOT NULL       Primary KEY,
+        "FilmId"           INT               NOT NULL       REFERENCES maindb."Films" ON UPDATE CASCADE ON DELETE CASCADE,
+        "Date"             Date              NOT NULL,
+        "Time"             interval	     NOT NULL,
+	"HallId"           Serial            NOT NULL    REFERENCES maindb."Hall" ON UPDATE CASCADE ON DELETE CASCADE
+       );
+ 
+
+
+Create Table maindb."Tickets" (
+
+       "TicketID"       Serial       NOT NULL     Primary KEY,
+       "SessionId"      INT          NOT NULL     REFERENCES maindb."Session" ON UPDATE CASCADE ON DELETE CASCADE,
+       "Row"            INT          NOT NULL,
+       "Seat"           INT          NOT NULL,
+       "Zone"           INT          NOT NULL,
+       "Booking"        Boolean      NOT NULL,
+
+       "Recall"         Int          CHECK ("Recall" > 0 AND "Recall" < 6),
+	UNIQUE ("SessionId","Row", "Seat")
+
+);
+
+
+
+
+
+
+CREATE TABLE maindb."Staff"   (
+       "StaffId"       	Serial       	NOT NULL     Primary KEY,
+       "FullName"      	FullName     	NOT NULL,      
+       "Position"      	Text         	NOT NULL,
+       "BirthDate"     	Date         	NOT NULL,
+       "EntryDate"     	Date	    	NOT NULL,
+	Login		VARCHAR 	NOT NULL 	REFERENCES login.UserPass ON UPDATE CASCADE ON DELETE CASCADE,
+	UNIQUE (Login)		      
+);
+
+CREATE TABLE maindb."StaffHall"   (
+	"HallId"	SMALLINT	NOT NULL	REFERENCES maindb."Hall" on update cascade on delete cascade,
+	"StaffId"	SMALLINT	NOT NULL 	REFERENCES maindb."Staff" on update cascade on delete cascade,
+	PRIMARY KEY ("HallId","StaffId") 
+	
+);

@@ -1,0 +1,36 @@
+CREATE SCHEMA login
+  AUTHORIZATION login;
+
+GRANT ALL   ON SCHEMA login TO login;
+GRANT ALL   ON SCHEMA login TO admin;
+GRANT USAGE ON SCHEMA login TO cashier;
+
+
+CREATE TABLE login.UserPass
+(
+  IDLogin character varying NOT NULL,
+  pass character varying NOT NULL,
+  vacant character varying NOT NULL,
+  PRIMARY KEY (IDLogin), 
+  UNIQUE (IDLogin)
+);
+
+ALTER TABLE login.UserPass
+OWNER TO login;
+GRANT SELECT ON TABLE login.UserPass TO login;
+GRANT ALL ON TABLE login.UserPass TO admin;
+
+
+INSERT INTO login.UserPass (IDLogin, pass, vacant) VALUES
+('admin1','02d95970d6c0e9c2cb2ff743bc579c57','admin'),
+('cleaner2','5cbc82a05d712a5562f239310d504905','cleaner'),
+('cleaner3','5cbc82a05d712a5562f239310d504905','cleaner'),
+('cleaner4','5cbc82a05d712a5562f239310d504905','cleaner'),
+('cleaner5','5cbc82a05d712a5562f239310d504905','cleaner'),
+('cleaner6','5cbc82a05d712a5562f239310d504905','cleaner'),
+('cleaner7','5cbc82a05d712a5562f239310d504905','cleaner'),
+('cleaner8','5cbc82a05d712a5562f239310d504905','cleaner'),
+('cleaner9','5cbc82a05d712a5562f239310d504905','cleaner'),
+('cashier1','cc8dc55997fba54c2aeb37438d98802e','cashier'),
+('cashier2','cc8dc55997fba54c2aeb37438d98802e','cashier'),
+('cashier3','cc8dc55997fba54c2aeb37438d98802e','cashier');

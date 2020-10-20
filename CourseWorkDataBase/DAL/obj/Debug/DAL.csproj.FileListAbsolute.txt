@@ -1,0 +1,9 @@
+C:\Users\onips\Desktop\CourseWork\DAL\bin\Debug\DAL.dll
+C:\Users\onips\Desktop\CourseWork\DAL\bin\Debug\DAL.pdb
+C:\Users\onips\Desktop\CourseWork\DAL\bin\Debug\Entities.dll
+C:\Users\onips\Desktop\CourseWork\DAL\bin\Debug\Npgsql.dll
+C:\Users\onips\Desktop\CourseWork\DAL\bin\Debug\Entities.pdb
+C:\Users\onips\Desktop\CourseWork\DAL\bin\Debug\Npgsql.xml
+C:\Users\onips\Desktop\CourseWork\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\onips\Desktop\CourseWork\DAL\obj\Debug\DAL.dll
+C:\Users\onips\Desktop\CourseWork\DAL\obj\Debug\DAL.pdb

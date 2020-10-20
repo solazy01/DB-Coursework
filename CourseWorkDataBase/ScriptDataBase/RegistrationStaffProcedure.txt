@@ -1,0 +1,38 @@
+-- SELECT *
+-- FROM maindb.add_Staff_func('Васянов','Васян','Васянович','Управляющий', '12.12.2012', '13.12.2012', 'admin6', '11111', 'admin' );
+
+CREATE OR REPLACE FUNCTION maindb.add_Staff_func(
+ FirstNameP VARCHAR,
+ SecondNameP VARCHAR, 
+ PatrynomicP VARCHAR,
+ PositionP VARCHAR,
+ DateOfBirthP DATE,
+ EntryDateP DATE, 
+ LoginP VARCHAR,
+ PasswordP VARCHAR, 
+ RoleP VARCHAR)
+
+RETURNS SETOF login.UserPass AS
+  
+$BODY$
+
+DECLARE 
+
+NewLogin VARCHAR;
+
+BEGIN 
+
+  INSERT INTO login.UserPass (IDLogin, pass, vacant) VALUES
+  (LoginP,PasswordP,RoleP) RETURNING IDLogin INTO NewLogin;
+
+  INSERT INTO maindb."Staff" ("FullName","Position", "BirthDate", "EntryDate", login ) VALUES
+  (ROW(FirstNameP,SecondNameP, PatrynomicP),PositionP,DateOfBirthP,EntryDateP,LoginP);
+
+    RETURN QUERY 
+    SELECT *
+    FROM login.UserPass 
+    WHERE IDLogin = NewLogin;
+
+END;
+$BODY$
+LANGUAGE plpgsql

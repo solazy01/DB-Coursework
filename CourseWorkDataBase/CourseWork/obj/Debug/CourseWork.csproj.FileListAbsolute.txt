@@ -1,0 +1,9 @@
+c:\users\sergey_zavada\documents\visual studio 2017\Projects\CourseWork\CourseWork\bin\Debug\CourseWork.exe.config
+c:\users\sergey_zavada\documents\visual studio 2017\Projects\CourseWork\CourseWork\bin\Debug\CourseWork.exe
+c:\users\sergey_zavada\documents\visual studio 2017\Projects\CourseWork\CourseWork\bin\Debug\CourseWork.pdb
+c:\users\sergey_zavada\documents\visual studio 2017\Projects\CourseWork\CourseWork\obj\Debug\CourseWork.csprojResolveAssemblyReference.cache
+c:\users\sergey_zavada\documents\visual studio 2017\Projects\CourseWork\CourseWork\obj\Debug\CourseWork.Form1.resources
+c:\users\sergey_zavada\documents\visual studio 2017\Projects\CourseWork\CourseWork\obj\Debug\CourseWork.Properties.Resources.resources
+c:\users\sergey_zavada\documents\visual studio 2017\Projects\CourseWork\CourseWork\obj\Debug\CourseWork.csproj.GenerateResource.Cache
+c:\users\sergey_zavada\documents\visual studio 2017\Projects\CourseWork\CourseWork\obj\Debug\CourseWork.exe
+c:\users\sergey_zavada\documents\visual studio 2017\Projects\CourseWork\CourseWork\obj\Debug\CourseWork.pdb

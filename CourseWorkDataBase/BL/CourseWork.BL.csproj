@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{418C8355-8A84-4EF2-9173-3EAD241C4668}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BL</RootNamespace>
+    <AssemblyName>BL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Npgsql">
+      <HintPath>..\Npgsql Driver\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\DomainObjects\FilmsMember.cs" />
+    <Compile Include="Admin\DomainObjects\HallMember.cs" />
+    <Compile Include="Admin\DomainObjects\SessionMember.cs" />
+    <Compile Include="Admin\DomainObjects\StaffHallMember.cs" />
+    <Compile Include="Admin\DomainObjects\StaffMember.cs" />
+    <Compile Include="Admin\DomainObjects\TicketsMember.cs" />
+    <Compile Include="Admin\Interface\IFilmsService.cs" />
+    <Compile Include="Admin\Interface\IHallService.cs" />
+    <Compile Include="Admin\Interface\ISessionService.cs" />
+    <Compile Include="Admin\Interface\IStaffHallService.cs" />
+    <Compile Include="Admin\Interface\IStaffService.cs" />
+    <Compile Include="Admin\Interface\ITicketsService.cs" />
+    <Compile Include="Admin\Service\FilmsService.cs" />
+    <Compile Include="Admin\Service\HallService.cs" />
+    <Compile Include="Admin\Service\SessionService.cs" />
+    <Compile Include="Admin\Service\StaffHallService.cs" />
+    <Compile Include="Admin\Service\StaffService.cs" />
+    <Compile Include="Admin\Service\TicketsService.cs" />
+    <Compile Include="Cashier\DomainObjects\FilmsMember.cs" />
+    <Compile Include="Cashier\DomainObjects\SessionMember.cs" />
+    <Compile Include="Cashier\DomainObjects\TicketsMember.cs" />
+    <Compile Include="Cashier\Interface\IFilmsServiceC.cs" />
+    <Compile Include="Cashier\Interface\ISessionServiceC.cs" />
+    <Compile Include="Cashier\Interface\ITicketsServiceC.cs" />
+    <Compile Include="Cashier\Service\FilmsServiceC.cs" />
+    <Compile Include="Cashier\Service\SessionServiceC.cs" />
+    <Compile Include="Cashier\Service\TicketsServiceC.cs" />
+    <Compile Include="Cleaner\ITimetableService.cs" />
+    <Compile Include="Cleaner\TimetableMember.cs" />
+    <Compile Include="Cleaner\TimetableService.cs" />
+    <Compile Include="Login\DomainObjects\LoginMember.cs" />
+    <Compile Include="Login\Interface\ILoginService.cs" />
+    <Compile Include="Login\Service\LoginService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\CourseWork.DAL.csproj">
+      <Project>{19d232ec-01d5-412a-9247-b2ae47a0817d}</Project>
+      <Name>CourseWork.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\CourseWork.Entities.csproj">
+      <Project>{53A664A7-97D3-4050-BA6B-C4D006E11D55}</Project>
+      <Name>CourseWork.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

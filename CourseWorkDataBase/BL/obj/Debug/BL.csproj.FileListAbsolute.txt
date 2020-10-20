@@ -1,0 +1,11 @@
+C:\Users\onips\Desktop\CourseWork\BL\bin\Debug\BL.dll
+C:\Users\onips\Desktop\CourseWork\BL\bin\Debug\BL.pdb
+C:\Users\onips\Desktop\CourseWork\BL\bin\Debug\DAL.dll
+C:\Users\onips\Desktop\CourseWork\BL\bin\Debug\Entities.dll
+C:\Users\onips\Desktop\CourseWork\BL\bin\Debug\Npgsql.dll
+C:\Users\onips\Desktop\CourseWork\BL\bin\Debug\DAL.pdb
+C:\Users\onips\Desktop\CourseWork\BL\bin\Debug\Entities.pdb
+C:\Users\onips\Desktop\CourseWork\BL\bin\Debug\Npgsql.xml
+C:\Users\onips\Desktop\CourseWork\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
+C:\Users\onips\Desktop\CourseWork\BL\obj\Debug\BL.dll
+C:\Users\onips\Desktop\CourseWork\BL\obj\Debug\BL.pdb
